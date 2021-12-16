@@ -1,3 +1,4 @@
+# App UI ====
 #' The application User-Interface
 #' 
 #' @param request Internal parameter for `{shiny}`. 
@@ -10,11 +11,21 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic 
     fluidPage(
-      h1("Nutrition")
+      h1("Main Page"),
+      br(),
+      shiny::navbarPage("NavBar",
+        shiny::tabPanel(title = "Summary",
+                        mod_summary_main_ui("summary_main_ui_1")),
+        shiny::tabPanel(title = "Recipes",
+                        mod_recipes_main_ui("recipes_main_ui_1")),                
+        shiny::tabPanel(title = "Ingredients",
+                        mod_ingredients_main_ui("ingredients_main_ui_1"))
+      )
     )
   )
 }
 
+# golem_add_external_resources() ====
 #' Add external Resources to the Application
 #' 
 #' This function is internally used to add external 
