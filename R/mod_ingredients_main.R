@@ -13,7 +13,8 @@ mod_ingredients_main_ui <- function(id){
     h1("Ingredients"),
     tabsetPanel(
       tabPanel(title = "Current Library"),
-      tabPanel(title = "Upload Ingredients")
+      tabPanel(title = "Upload Ingredients",
+               mod_ingredients_upload_ui("ingredients_upload_ui_1"))
     )
  
   )
@@ -25,7 +26,7 @@ mod_ingredients_main_ui <- function(id){
 mod_ingredients_main_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
- 
+    mod_ingredients_upload_server("ingredients_upload_ui_1")
   })
 }
     

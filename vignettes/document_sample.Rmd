@@ -1,0 +1,19 @@
+---
+title: "document_sample"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{document_sample}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Nutrition)
+```
