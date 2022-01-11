@@ -24,6 +24,7 @@ library(kableExtra)
 
 # Nutrition Analysis: Shiny Dashboard
 ## Overview
+This is currently a project to utilize Shiny to track nutritional intake.  The user will be able to add ingredients into their library from various sources (e.g. USDA databases, Manual Upload, Nutrition Labels), as well as recipes from various sources (e.g. allrecipes.com, manual entry).  User-friendly data analysis will also then be made available as we input nutritional intake (idea: add features to enable goal setting or compare intake to certain popular diets).
 
 
 ## Data Sources
@@ -31,7 +32,7 @@ The possible ways to add ingredients to your personal dashboard are as follows:
    1. Food Data Central (FDC)
    2. Manual Entry
 
-### Food Data Central
+### Food Data Central ([Link](https://fdc.nal.usda.gov/api-guide.html))
 "The USDA National Nutrient Database for Standard Reference is a database produced by the United States Department of Agriculture that provides the nutritional content of many generic and proprietary-branded foods. Released in August 2015 and revised in May 2016, the current release, Standard Reference 28 (SR28), contains "data on 8,800 food items and up to 150 food components".[1] New releases occur about once per year. The database may be searched online,[2] queried through a representational state transfer API,[3] or downloaded"  - Wikipedia
 
 Being able to browse through food items will be a main component of the Shiny project.  To get this data, the user will be able to enter an API-token and a search term to return a list of items to add to their library.  
@@ -63,7 +64,7 @@ nutrients_measured <-
   select(nutrient_name, nutrient_id)
 
 nutrient_id_used <- 
-  tibble(nutrient_id = c(1008, 1003, 1005, 1257, 1258)) %>% 
+  tibble(nutrient_id = c(1008, 1003, 1005, 1257, 1258, 1004, 2000, 1093)) %>% 
   mutate(order = 1:nrow(.))
 
 # Joined
@@ -105,13 +106,19 @@ fdc_branded %>%
            nutrient_id == 1003 ~ "Protein (g)",
            nutrient_id == 1005 ~ "Carbohydates (g)",
            nutrient_id == 1257 ~ "Fats (trans)",
-           nutrient_id == 1258 ~ "Fats (saturated)"),
+           nutrient_id == 1258 ~ "Fats (saturated)",
+           nutrient_id == 1004 ~ "Total Lipid",
+           nutrient_id == 2000 ~ "Sugars total",
+           nutrient_id == 1093 ~ "Sodium"),
          nutrient = factor(nutrient, 
                            levels = c("Calories (KCal)", 
                                       "Protein (g)", 
                                       "Carbohydates (g)",
                                       "Fats (trans)", 
-                                      "Fats (saturated)"))) %>%  
+                                      "Fats (saturated)",
+                                      "Total Lipid",
+                                      "Sugars total",
+                                      "Sodium"))) %>%  
   select(description,
          fdc_id,
          food_category,
@@ -137,13 +144,19 @@ fdc_measured %>%
            nutrient_id == 1003 ~ "Protein (g)",
            nutrient_id == 1005 ~ "Carbohydates (g)",
            nutrient_id == 1257 ~ "Fats (trans)",
-           nutrient_id == 1258 ~ "Fats (saturated)"),
+           nutrient_id == 1258 ~ "Fats (saturated)",
+           nutrient_id == 1004 ~ "Total Lipid",
+           nutrient_id == 2000 ~ "Sugars total",
+           nutrient_id == 1093 ~ "Sodium"),
          nutrient = factor(nutrient, 
                            levels = c("Calories (KCal)", 
                                       "Protein (g)", 
                                       "Carbohydates (g)",
                                       "Fats (trans)", 
-                                      "Fats (saturated)"))) %>% 
+                                      "Fats (saturated)",
+                                      "Total Lipid",
+                                      "Sugars total",
+                                      "Sodium"))) %>% 
   select(description,
          fdc_id,
          data_type,
@@ -157,6 +170,12 @@ fdc_measured %>%
 
 ```
 
+
+
+# Questions:
+1. Can you add a link to the parameter value in a roxygen document? (e.g. I want to link where to sign up for an API key in the '@param' section)
+
+2. I changed a function name in a golem::add_fct() function, but the filename has remained, will this cause issues? What downstream elements do I need to update
 
 
 
