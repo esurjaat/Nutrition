@@ -1,4 +1,4 @@
-#' summary_main UI Function
+#' intake_log UI Function
 #'
 #' @description A shiny Module.
 #'
@@ -7,21 +7,17 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_summary_main_ui <- function(id){
+mod_intake_log_ui <- function(id){
   ns <- NS(id)
   tagList(
-    h1("Summary"),
-    tabsetPanel(
-      tabPanel(title = "Nutritional Intake"),
-      tabPanel(title = "Library")
-    )
+ 
   )
 }
     
-#' summary_main Server Functions
+#' intake_log Server Functions
 #'
 #' @noRd 
-mod_summary_main_server <- function(id){
+mod_intake_log_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
  
@@ -29,7 +25,7 @@ mod_summary_main_server <- function(id){
 }
     
 ## To be copied in the UI
-# mod_summary_main_ui("summary_main_ui_1")
+# mod_intake_log_ui("intake_log_ui_1")
     
 ## To be copied in the server
-# mod_summary_main_server("summary_main_ui_1")
+# mod_intake_log_server("intake_log_ui_1")
