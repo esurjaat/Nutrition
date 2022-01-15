@@ -21,6 +21,8 @@
 #' @import forcats
 #' @import purrr
 #' @import tidyr
+#' @import shinycssloaders
+#' @import readr
 #' 
 fdc_shape_search <- function(api_key, search_term, data_type = "Branded", page_size = 10000){
   search_term_clean <- 

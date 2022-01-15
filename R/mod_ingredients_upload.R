@@ -88,12 +88,12 @@ mod_ingredients_upload_ui <- function(id){
                          h2("Lookup Results"),
                          textOutput(outputId = ns("fdc_table_description_text")),
                          br(),
-                         DT::DTOutput(outputId = ns("fdc_table")),
+                         DT::DTOutput(outputId = ns("fdc_table")) %>% shinycssloaders::withSpinner(),
                          br(),
                          actionButton(inputId = ns("add_fdc"),
                                       label = "Add"),
                          br(),
-                         DT::DTOutput(outputId = ns("fdc_selected"))
+                         DT::DTOutput(outputId = ns("fdc_selected")) %>% shinycssloaders::withSpinner()
                          )
                        )
                      )

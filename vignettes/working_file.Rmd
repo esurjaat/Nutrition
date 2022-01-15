@@ -20,6 +20,8 @@ library(jsonlite)
 library(httr)
 library(lubridate)
 library(kableExtra)
+library(shinycssloaders)
+library(rvest)
 ```
 
 # Nutrition Analysis: Shiny Dashboard

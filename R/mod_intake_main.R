@@ -13,7 +13,8 @@ mod_intake_main_ui <- function(id){
     h1("Nutritional Intake"),
     tabsetPanel(
       tabPanel(title = "Summary"),
-      tabPanel(title = "Log")
+      tabPanel(title = "Log",
+               mod_intake_log_ui("intake_log_ui_1"))
     )
   )
 }
@@ -24,7 +25,10 @@ mod_intake_main_ui <- function(id){
 mod_intake_main_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
- 
+    
+    # Modules ====
+    mod_intake_log_server("intake_log_ui_1")
+    
   })
 }
     
