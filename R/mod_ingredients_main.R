@@ -27,15 +27,10 @@ mod_ingredients_main_ui <- function(id){
 mod_ingredients_main_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-    # Define ====
-    temp <- mod_ingredients_upload_server("ingredients_upload_ui_1")
-    
     # Modules ====
-    mod_ingredients_upload_server("ingredients_upload_ui_1")
-    mod_ingredients_library_server("ingredients_library_ui_1", 
-                                   add_fdcIds = temp$add_fdcIds, 
-                                   add_button = temp$add_button, 
-                                   api_key = temp$api)
+    ingredients_upload <- mod_ingredients_upload_server("ingredients_upload_ui_1")
+    
+    
   })
 }
     

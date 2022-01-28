@@ -10,19 +10,6 @@
 #' @return data frame with the list of matching items
 #'
 #' @noRd
-#' @import config
-#' @import httr
-#' @import jsonlite
-#' @import janitor
-#' @import DT
-#' @import stringr
-#' @import tools
-#' @import dplyr
-#' @import forcats
-#' @import purrr
-#' @import tidyr
-#' @import shinycssloaders
-#' @import readr
 #' 
 fdc_shape_search <- function(api_key, search_term, data_type = "Branded", page_size = 10000){
   search_term_clean <- 
@@ -78,9 +65,6 @@ fdc_shape_search <- function(api_key, search_term, data_type = "Branded", page_s
 #' @export
 #'
 #' @examples
-api_key <- "Eh38lQx1g15IHPI6BTImhcZMSsaZMurJvzZqHdIS"
-fdc_ids <- 2009259
-
 fdc_shape_id <- function(api_key, fdc_ids) {
   # Define ====
   nutrients <- 
@@ -225,6 +209,8 @@ fdc_shape_id <- function(api_key, fdc_ids) {
   data <- 
     data_description %>% 
     left_join(data_foodType, by = "fdc_id") %>% 
+    mutate(serving_size = 100,
+           measurement = "grams") %>% 
     left_join(data_nutrients_wide, by = "fdc_id")
   
   # Output ====

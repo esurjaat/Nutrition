@@ -7,6 +7,21 @@
 #' @export
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options 
+#' @import config
+#' @import httr
+#' @import jsonlite
+#' @import janitor
+#' @import DT
+#' @import stringr
+#' @import tools
+#' @import dplyr
+#' @import forcats
+#' @import purrr
+#' @import tidyr
+#' @import shinycssloaders
+#' @import readr
+#' @import shinyTime
+#' 
 run_app <- function(
   onStart = NULL,
   options = list(), 

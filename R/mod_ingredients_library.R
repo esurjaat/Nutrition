@@ -116,6 +116,13 @@ mod_ingredients_library_server <- function(id, add_fdcIds, add_button, api_key){
         },
         contentType = "text/csv"
       )
+    
+    # Return ====
+    return(
+      list(
+        library = shiny::reactive(table_library$df)
+      )
+    )
 
  
   })

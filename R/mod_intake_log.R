@@ -21,7 +21,7 @@ mod_intake_log_ui <- function(id){
                        choices = c("Ingredient", "Recipe")),
     conditionalPanel(
       condition = ns_paste(inputId = "type", value = "Ingredient"),
-      selectInput(inputId = ns("Ingredient"),
+      selectInput(inputId = ns("ingredient"),
                   label = "Ingredient",
                   choices = NULL,
                   selected = NULL)
@@ -35,16 +35,44 @@ mod_intake_log_ui <- function(id){
                        choices = c("Grams (g)"),
                        selected = "Grams (g)"),
     shiny::actionButton(inputId = ns("log"),
-                        label = "Log")
+                        label = "Log"),
+    DT::DTOutput(outputId = ns("test")),
+    textOutput(outputId = ns("text"))
   )
 }
     
 #' intake_log Server Functions
 #'
 #' @noRd 
-mod_intake_log_server <- function(id){
+mod_intake_log_server <- function(id, ingredients){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
+    
+    # Update Ingredients ====
+    ingredients <- reactiveValues()
+    ingredients$selected <- character()
+    
+    ingredients_reactive <- eventReactive(ingredients(), {
+      ingredients() %>% 
+        pull(description)
+    })
+    
+    observeEvent(ingredients_reactive(), {
+      isolate(ingredients$selected <- ingredients_reactive())
+    })
+    
+    observeEvent(ingredients$selected, {
+      updateSelectInput(session = session,
+                        inputId = "ingredient",
+                        choices = ingredients$selected)
+    })
+    
+    
+    # Test ====
+    output$test <- 
+      DT::renderDT({
+        ingredients$selected %>% as_tibble()
+      })
     
     
  
