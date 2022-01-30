@@ -12,26 +12,31 @@ mod_recipes_library_ui <- function(id){
   ns_paste <- function(inputId, value){paste0("input[\'", ns(inputId), "\'] == \'", value,"\'")}
   
   tagList(
-    br(),
-    fluidRow(selectInput(ns("type"), 
-                         label = "View Type", 
-                         choices = c("Detail", "Summary"),
-                         selected = "Detail")),
-    hr(),
-    br(),
-    conditionalPanel(condition = ns_paste(inputId = "type", value = "Detail"),
-                     h2("Recipes (Detailed)"),
-                     DT::DTOutput(ns("detail"))),
-    conditionalPanel(condition = ns_paste(inputId = "type", value = "Summary"),
-                     h2("Recipes (Summary)"),
-                     DT::DTOutput(ns("summary")))
+    sidebarLayout(
+      sidebarPanel(
+        width = 3,
+        h2("Controls"),
+        radioButtons(ns("type"), 
+                    label = "Table Type", 
+                    choices = c("Summary", "Detail"),
+                    selected = "Summary", inline = TRUE)
+      ),
+      mainPanel(
+        width = 9,
+        h2("Recipe Libary"),
+        conditionalPanel(condition = ns_paste(inputId = "type", value = "Detail"),
+                         DT::DTOutput(ns("detail"))),
+        conditionalPanel(condition = ns_paste(inputId = "type", value = "Summary"),
+                         DT::DTOutput(ns("summary")))
+        )
+      )
   )
 }
     
 #' recipes_library Server Functions
 #'
 #' @noRd 
-mod_recipes_library_server <- function(id, recipes_add){
+mod_recipes_library_server <- function(id, recipes_add, upload){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     
@@ -42,7 +47,16 @@ mod_recipes_library_server <- function(id, recipes_add){
       library$detail <- bind_rows(isolate(library$detail), recipes_add$table()) %>% unique()
     })
     
+    observeEvent(upload$table(), {
+      library$detail <- 
+        bind_rows(isolate(library$detail), 
+                  upload$table() %>% 
+                    mutate(fdc_id = as.character(fdc_id))) %>% 
+        unique()
+    })
+    
     summary <- reactive({
+      req(library$detail)
       library$detail %>% 
         group_by(recipe_name, recipe_category) %>% 
         summarise(across(.cols = `Calories (kcal)`:`Fiber (g)`, 
@@ -51,7 +65,7 @@ mod_recipes_library_server <- function(id, recipes_add){
     
     output$detail <-
       DT::renderDT({
-        req(recipes_add$recipe_addButton())
+        req(nrow(library$detail > 0))
         library$detail %>% 
           titler()
       })
@@ -65,6 +79,7 @@ mod_recipes_library_server <- function(id, recipes_add){
     
     return(
       list(
+        table = reactive({ library$detail }),
         detail = reactive({ library$detail }),
         summary = reactive({ summary() })
       )

@@ -12,15 +12,21 @@ mod_recipe_add_ui <- function(id){
   tagList(
     sidebarLayout(
       sidebarPanel(
+        width = 3,
+        fluid = TRUE,
+        h2("Recipe Entry"),
         textInput(ns("name"), label = "Recipe Name"),
         textInput(ns("category"), label = "Recipe Category"),
         selectInput(ns("food_category"),label = "Food Category", choices = NULL),
         selectInput(ns("description"), label = "Ingredient", choices = NULL),
         numericInput(ns("amount"), label = "Amount", value = 0, min = 0),
         selectInput(ns("measurement"), label = "Measurement", choices = c("grams"), selected = "grams"),
-        actionButton(ns("add"), label = "Add Item")
+        actionButton(ns("add"), label = "Add Ingredient")
       ),
       mainPanel(
+        width = 9,
+        h2("Recipe Ingredients List"),
+        h6("Please add all ingredients involved in the recipe then click 'Add to Library' below to add the recipe to your Library"),
         DT::DTOutput(ns("table")),
         actionButton(ns("add_library"), label = "Add to Library")
       )

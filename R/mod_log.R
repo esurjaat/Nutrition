@@ -14,8 +14,12 @@ mod_log_ui <- function(id){
   tagList(
     sidebarLayout(
       sidebarPanel(
+        width = 3,
+        fluid = TRUE,
+        h2("Food Entry"),
         dateInput(ns("date"), label = "Date", value = Sys.Date()),
         timeInput(ns("time"), label = "Time", value = Sys.time()),
+        h6("The time will update every ten minutes to stay current", style = "font-size:10px;"),
         selectInput(ns("type"), label = "Type", choices = c("Ingredient", "Recipe"), selected = "Ingredient"),
         conditionalPanel(condition = ns_paste(inputId = "type", value = "Ingredient"),
                          selectInput(ns("ingredient_category"), label = "Category", choices = NULL, selected = NULL),
@@ -29,11 +33,9 @@ mod_log_ui <- function(id){
         actionButton(ns("submit"), label = "Submit")
       ),
       mainPanel(
-        selectInput(ns("view_type"), label = "View", choices = c("Table", "Graph"), selected = "Table"),
-        conditionalPanel(condition = ns_paste(inputId = "view_type", value = "Table"),
-                         DT::DTOutput(ns("table"))),
-        conditionalPanel(condition = ns_paste(inputId = "view_type", value = "Graph"),
-                         plotOutput(ns("plot")))
+        width = 9,
+        h2("Food Log"),
+        DT::DTOutput(ns("table"))
       )
     )
   )
@@ -42,7 +44,7 @@ mod_log_ui <- function(id){
 #' log Server Functions
 #'
 #' @noRd 
-mod_log_server <- function(id, ingredients_library, recipes_library){
+mod_log_server <- function(id, ingredients_library, recipes_library, upload){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     
@@ -176,9 +178,32 @@ mod_log_server <- function(id, ingredients_library, recipes_library){
       }
     })
     
+    # Timed Invalidations ====
+    time <- reactive({
+      invalidateLater(1000 * 60 * 10)
+      Sys.time()
+    })
+    
+    observeEvent(time(), { 
+      updateTimeInput(session = session,
+                      inputId = "time",
+                      value = time())
+      })
+    
     # UI Outputs ====
     output$table <- DT::renderDT({ r$log })
     
+    # Update Log ====
+    observeEvent(upload$table(), {
+      r$log <- bind_rows(isolate(r$log), upload$table()) %>% unique()
+    })
+    
+    # Return Objects ====
+    return(
+      list(
+        table = reactive({ r$log })
+      )
+    )
     
   })
 }

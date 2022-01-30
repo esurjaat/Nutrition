@@ -21,6 +21,8 @@
 #' @import shinycssloaders
 #' @import readr
 #' @import shinyTime
+#' @import readxl
+#' @import openxlsx
 #' 
 run_app <- function(
   onStart = NULL,

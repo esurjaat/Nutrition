@@ -11,15 +11,18 @@ mod_ing_selfUpload_ui <- function(id){
   ns <- NS(id)
   tagList(
     column(3,
+           h2("Food Description"),
            textInput(ns("food_category"), label = "Food Category"),
            textInput(ns("description"), label = "Description"),
            textInput(ns("upc"), label = "UPC"),
            textInput(ns("brand_name"), label = "Brand Name"),
            textInput(ns("brand_owner"), label = "Brand Owner")),
     column(3,
+           h2("Serving Info"),
            numericInput(ns("serving_size"),label = "Serving Size", value = 0, min = 0),
            selectInput(ns("measurement"), label = "Measurement", choices = c("grams"), selected = "grams")),
     column(3,
+           h2("Nutrition Facts"),
            numericInput(ns("calories"), label = "Calories (Kcal)", value = 0, min = 0, step = 10),
            numericInput(ns("protein"), label = "Protein (g)", value = 0, min = 0, step = 1),
            numericInput(ns("carbohydrates"), label = "Carbohydrates (g)", value = 0, min = 0, step = 1),

@@ -18,7 +18,7 @@ mod_ing_libraryTable_ui <- function(id){
 #' ing_libraryTable Server Functions
 #'
 #' @noRd 
-mod_ing_libraryTable_server <- function(id, fdc_table, user_upload){
+mod_ing_libraryTable_server <- function(id, fdc_table, user_upload, upload){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     
@@ -59,9 +59,18 @@ mod_ing_libraryTable_server <- function(id, fdc_table, user_upload){
       library_reactives$df <- bind_rows(isolate(library_reactives$df), user_upload$entry()) %>% unique()
     })
     
+    observeEvent(upload$table(), {
+      library_reactives$df <- 
+        bind_rows(library_reactives$df, 
+                  upload$table() %>% 
+                    mutate(fdc_id = as.character(fdc_id))) %>%
+        unique()
+    })
+    
     output$table <- 
       DT::renderDT({
-        library_reactives$df
+        library_reactives$df %>% 
+          titler()
       })
     
     return(
