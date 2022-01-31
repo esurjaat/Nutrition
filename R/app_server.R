@@ -21,5 +21,13 @@ app_server <- function( input, output, session) {
   mod_downloadButton_server("downloadButton_ui_ingredients", name = "Ingredients", data = ingredients_library)
   mod_downloadButton_server("downloadButton_ui_recipes", name = "Recipes", data = recipes_library)
   mod_downloadButton_server("downloadButton_ui_log", name = "Food Log", data = log)
+  
+  # Data Viz ====
+  barchart_sidebar <- mod_viz_barchart_sidebar_server("viz_barchart_sidebar_ui_1")
+  barchart <- mod_viz_barchart_server("viz_barchart_ui_1", log = log, barchart_sidebar = barchart_sidebar)
+  
+  scatter_meal_sidebar <- mod_viz_scatter_meal_sidebar_server("viz_scatter_meal_sidebar_ui_1")
+  scatter <- mod_viz_scatter_meal_server("viz_scatter_meal_ui_1", log = log, scatter_meal_sidebar = scatter_meal_sidebar)
+  
 }
    

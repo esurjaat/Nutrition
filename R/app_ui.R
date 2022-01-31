@@ -24,7 +24,34 @@ app_ui <- function(request) {
                  ),
                  conditionalPanel(condition = "input.log_view == 'Add'",
                                   mod_log_ui("log_ui_1")),
-                 conditionalPanel(condition = "input.log_view == 'Summary'")),
+                 conditionalPanel(condition = "input.log_view == 'Summary'",
+                                  sidebarLayout(
+                                    sidebarPanel(
+                                      width = 3,
+                                      h2("Options"),
+                                      selectInput("viz_type", 
+                                                  label = "Visual", 
+                                                  choices = c("Daily Caloric Intake", "Individual Meals"), 
+                                                  selected = "Daily Caloric Intake"),
+                                      hr(),
+                                      h2("Inputs"),
+                                      conditionalPanel(condition = "input.viz_type == 'Daily Caloric Intake'",
+                                                       mod_viz_barchart_sidebar_ui("viz_barchart_sidebar_ui_1")),
+                                      conditionalPanel(condition = "input.viz_type == 'Individual Meals'",
+                                                       mod_viz_scatter_meal_sidebar_ui("viz_scatter_meal_sidebar_ui_1"))
+                                      ),
+                                    mainPanel(
+                                      width = 9,
+                                      conditionalPanel(condition = "input.viz_type == 'Daily Caloric Intake'",
+                                                       h2("Daily Caloric Intake"),
+                                                       mod_viz_barchart_ui("viz_barchart_ui_1")),
+                                      conditionalPanel(condition = "input.viz_type == `Individual Meals`",
+                                                       h2("Individual Meal Caloric Comparison"),
+                                                       mod_viz_scatter_meal_ui("viz_scatter_meal_ui_1"))
+                                      )
+                                    )
+                                  )
+                 ),
         tabPanel(title = "Recipes",
                  br(),
                  fluidRow(

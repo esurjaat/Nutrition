@@ -23,6 +23,9 @@
 #' @import shinyTime
 #' @import readxl
 #' @import openxlsx
+#' @import ggplot2
+#' @import lubridate
+#' @import gt
 #' 
 run_app <- function(
   onStart = NULL,
