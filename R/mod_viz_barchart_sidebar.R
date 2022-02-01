@@ -10,7 +10,7 @@
 mod_viz_barchart_sidebar_ui <- function(id){
   ns <- NS(id)
   tagList(
-    shiny::dateInput(inputId = ns("date"), label = "Week Start", value = Sys.Date()),
+    shiny::dateInput(inputId = ns("date"), label = "Week Start", value = lubridate::ymd("2022-01-31")),
     shiny::radioButtons(inputId = ns("type"), label = "Breakdown", choices = c("Total Calories", "Macronutrients"))
   )
 }
@@ -28,6 +28,7 @@ mod_viz_barchart_sidebar_server <- function(id){
         type = reactive({ input$type })
       )
     )
+    
  
   })
 }

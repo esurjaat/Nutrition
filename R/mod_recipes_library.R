@@ -78,6 +78,11 @@ mod_recipes_library_server <- function(id, recipes_add, upload){
           titler()
       })
     
+    # Load Sample Data ====
+    observe({
+      library$detail <- read_csv("Data/Recipes - 2022-01-31.csv")
+    })
+    
     return(
       list(
         table = reactive({ library$detail }),

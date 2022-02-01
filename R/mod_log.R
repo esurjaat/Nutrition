@@ -198,6 +198,12 @@ mod_log_server <- function(id, ingredients_library, recipes_library, upload){
         .[-input$table_rows_selected, ]
     })
     
+    # Load Sample Data =============
+    observe({
+      r$log <- read_csv("Data/Food Log - 2022-01-31.csv")
+    })
+  
+    
     # Return Objects ====
     return(
       list(

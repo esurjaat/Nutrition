@@ -33,8 +33,7 @@ mod_viz_barchart_server <- function(id, log, barchart_sidebar){
       renderPlot({
         plot()
       })
-    
-    
+  
  
   })
 }
