@@ -16,12 +16,14 @@ viz_barchart <- function(log, type, week_start){
            Protein = `Protein (g)` * 4) %>% 
     select(date, 
            Calories = `Calories (kcal)`,
-           Fats,
+           Protein,
            Carbohydrates,
-           Protein) %>% 
-    pivot_longer(cols = c(Calories, Fats, Carbohydrates, Protein),
+           Fats) %>% 
+    pivot_longer(cols = c(Calories, Protein, Carbohydrates, Fats),
                  names_to = "type",
                  values_to = "amount") %>% 
+    group_by(date, type) %>% 
+    summarise(amount = sum(amount), .groups = "drop") %>% 
     mutate(id = paste(date, type, sep = "_"))
   
   

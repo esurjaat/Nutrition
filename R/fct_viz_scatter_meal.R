@@ -65,7 +65,7 @@ viz_scatter_meal <- function(log, day_start, day_end, x_var, y_var){
             x = !!x_var,
             y = !!y_var) %>% 
      ggplot(aes(x = x, y = y)) + 
-     geom_point(col = "blue", size = 4) + 
+     geom_point(col = "blue", size = 4, alpha = 0.7) + 
      theme_classic() + 
      scale_x_continuous(limits = limits, labels = scales::comma) + 
      scale_y_continuous(limits = limits, labels = scales::comma) + 

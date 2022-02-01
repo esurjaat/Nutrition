@@ -44,14 +44,15 @@ mod_recipes_library_server <- function(id, recipes_add, upload){
       reactiveValues(detail = NULL)
     
     observeEvent(recipes_add$recipe_addButton(), {
-      library$detail <- bind_rows(isolate(library$detail), recipes_add$table()) %>% unique()
+      library$detail <- bind_rows(isolate(library$detail), recipes_add$table() %>% mutate(upc = as.character(upc))) %>% unique()
     })
     
     observeEvent(upload$table(), {
       library$detail <- 
         bind_rows(isolate(library$detail), 
                   upload$table() %>% 
-                    mutate(fdc_id = as.character(fdc_id))) %>% 
+                    mutate(fdc_id = as.character(fdc_id),
+                           upc = as.character(upc))) %>% 
         unique()
     })
     

@@ -1,0 +1,18 @@
+fdc_id,food_category,description,source,data_type,upc,brand_name,brand_owner,serving_size,measurement,Calories (kcal),Protein (g),Carbohydrates (g),Total Fat (g),Trans Fats (g),Saturated Fats (g),Sodium (mg),Fiber (g)
+171077,Poultry Products,"Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",Food Data Central,SR Legacy,NA,NA,NA,100,grams,120,22.5,0,2.62,0.007,0.563,45,0
+171116,Poultry Products,"Chicken, ground, raw",Food Data Central,SR Legacy,NA,NA,NA,100,grams,143,17.44,0.04,8.1,0.065,2.301,60,0
+169704,Cereal Grains and Pasta,"Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)",Food Data Central,SR Legacy,NA,NA,NA,100,grams,123,2.74,25.58,0.97,0,0.26,4,1.6
+748967,Dairy and Egg Products,"Eggs, Grade A, Large, egg whole",Food Data Central,Foundation,NA,NA,NA,100,grams,148,12.4,0.96,9.96,0,3.2,129,0
+747997,Dairy and Egg Products,"Eggs, Grade A, Large, egg white",Food Data Central,Foundation,NA,NA,NA,100,grams,55,10.7,2.36,0,0,0,0,0
+748236,Dairy and Egg Products,"Eggs, Grade A, Large, egg yolk",Food Data Central,Foundation,NA,NA,NA,100,grams,334,16.2,1.02,28.8,0,0,0,0
+2177058,Cookies & Biscuits,"CHOCOLATE CHIP MINI COOKIES, CHOCOLATE CHIP",Food Data Central,Branded,850004801024,HIGHKEY,"Summit Naturals, Inc.",100,grams,464,10.71,42.86,46.43,0,21.43,375,7.1
+2207980,Prepared Soups,"Campbell's Chunky Soup, Healthy Request Roasted Chicken with Country Vegetables Soup, 18.8 Ounce Can",Food Data Central,Branded,00051000195708,CAMPBELL'S,CAMPBELL SOUP COMPANY,100,grams,42,2.5,6.67,0.42,0,0,171,1.2
+NA,Dairy,Whipped Cream Cheese,Self-Upload,NA,00124980,Trader Joe's,Trader Joe's,20,grams,70,1,1,7,0,4,70,0
+1929243,Prepared Pasta & Pizza Sauces,"PESTO WITH BASIL, BASIL",Food Data Central,Branded,024842015336,BUITONI,"Nestle USA-Prepared Foods Division, Inc.",100,grams,468,11.29,8.06,43.55,0,8.06,645,0
+1984631,Canned & Bottled Beans,ORGANIC BLACK BEANS,Food Data Central,Branded,079893125916,O ORGANICS,Glencourt Inc.,100,grams,85,5.38,15.38,0.38,0,0,8,3.8
+1940336,Breads & Buns,BRIOCHE BUNS,Food Data Central,Branded,072220101652,SEATTLE SOURDOUGH BAKING COMPANY,United States Bakery,100,grams,288,10.96,47.95,5.48,0,2.05,466,2.7
+328637,Dairy and Egg Products,"Cheese, cheddar",Food Data Central,Foundation,NA,NA,NA,100,grams,408,23.3,2.44,34,1.14,19.2,654,0
+169247,Vegetables and Vegetable Products,"Lettuce, cos or romaine, raw",Food Data Central,SR Legacy,NA,NA,NA,100,grams,17,1.23,3.29,0.3,0,0.039,8,2.1
+170050,Vegetables and Vegetable Products,"Tomatoes, red, ripe, cooked",Food Data Central,SR Legacy,NA,NA,NA,100,grams,18,0.95,4.01,0.11,0,0.015,11,0.7
+170457,Vegetables and Vegetable Products,"Tomatoes, red, ripe, raw, year round average",Food Data Central,SR Legacy,NA,NA,NA,100,grams,18,0.88,3.89,0.2,0,0.028,5,1.2
+174037,Beef Products,"Beef, ground, 75% lean meat / 25% fat, raw",Food Data Central,SR Legacy,NA,NA,NA,100,grams,293,15.76,0,25,1.5,9.568,66,0

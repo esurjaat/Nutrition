@@ -18,8 +18,12 @@ mod_log_ui <- function(id){
         fluid = TRUE,
         h2("Food Entry"),
         dateInput(ns("date"), label = "Date", value = Sys.Date()),
-        timeInput(ns("time"), label = "Time", value = Sys.time()),
-        h6("The time will update every ten minutes to stay current", style = "font-size:10px;"),
+        fluidRow(
+          column(width = 3,
+                 numericInput(ns("time"), label = "Time", value = 8, min = 1, max = 12)),
+          column(width = 6,
+                 radioButtons(ns("am_pm"), label = "", choices = c("AM", "PM"), selected = "AM", inline = FALSE))
+          ),
         selectInput(ns("type"), label = "Type", choices = c("Ingredient", "Recipe"), selected = "Ingredient"),
         conditionalPanel(condition = ns_paste(inputId = "type", value = "Ingredient"),
                          selectInput(ns("ingredient_category"), label = "Category", choices = NULL, selected = NULL),
@@ -35,7 +39,8 @@ mod_log_ui <- function(id){
       mainPanel(
         width = 9,
         h2("Food Log"),
-        DT::DTOutput(ns("table"))
+        DT::DTOutput(ns("table")),
+        actionButton(ns("remove"),label = "Remove")
       )
     )
   )
@@ -95,7 +100,7 @@ mod_log_server <- function(id, ingredients_library, recipes_library, upload){
       reactiveValues(
         log = 
           tibble(date = as.Date(NA),
-                 time = as.Date(NA),
+                 time = as.character(NA),
                  type = as.character(NA),
                  category = as.character(NA),
                  item = as.character(NA),
@@ -119,7 +124,7 @@ mod_log_server <- function(id, ingredients_library, recipes_library, upload){
         r$log <- 
           bind_rows(isolate(r$log),
                     tibble(date = input$date,
-                           time = input$time,
+                           time = paste(input$time, input$am_pm, sep = " "),
                            type = input$type,
                            category = input$ingredient_category,
                            item = input$ingredient_item,
@@ -149,7 +154,7 @@ mod_log_server <- function(id, ingredients_library, recipes_library, upload){
             isolate(r$log),
             tibble(
               date = input$date,
-              time = input$time,
+              time = paste(input$time, input$am_pm, sep = " "),
               type = input$type,
               category = input$recipe_category,
               item = input$recipe_item,
@@ -178,24 +183,19 @@ mod_log_server <- function(id, ingredients_library, recipes_library, upload){
       }
     })
     
-    # Timed Invalidations ====
-    time <- reactive({
-      invalidateLater(1000 * 60 * 10)
-      Sys.time()
-    })
-    
-    observeEvent(time(), { 
-      updateTimeInput(session = session,
-                      inputId = "time",
-                      value = time())
-      })
-    
     # UI Outputs ====
-    output$table <- DT::renderDT({ r$log })
+    output$table <- DT::renderDT({ r$log %>% titler() })
     
     # Update Log ====
     observeEvent(upload$table(), {
       r$log <- bind_rows(isolate(r$log), upload$table()) %>% unique()
+    })
+    
+    # Remove Item ====
+    observeEvent(input$remove, {
+      r$log <- 
+        r$log %>% 
+        .[-input$table_rows_selected, ]
     })
     
     # Return Objects ====

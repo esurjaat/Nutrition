@@ -1,0 +1,32 @@
+date,time,type,category,item,recipe_total_weight,amount,measurement,amount_consumed,Calories (kcal),Protein (g),Carbohydrates (g),Total Fat (g),Trans Fats (g),Saturated Fats (g),Sodium (mg),Fiber (g)
+2022-01-31,8 AM,Recipe,Breakfast,Eggs & Oatmeal,100,NA,grams,100,384.7,12.4,10.9605,10.9605,0,3.2,130.65,1.335
+2022-01-31,6 PM,Recipe,Lunch & Dinner,Burger,100,NA,grams,100,574,29.175,31.765,36.74,1.785,15.46,475.5,4.65
+2022-01-31,10 AM,Ingredient,Cookies & Biscuits,"CHOCOLATE CHIP MINI COOKIES, CHOCOLATE CHIP",NA,NA,grams,25,116,2.6775,10.715,11.6075,0,5.3575,93.75,1.775
+2022-01-31,1 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-01-31,8 AM,Ingredient,Dairy,Whipped Cream Cheese,NA,NA,grams,50,175,2.5,2.5,17.5,0,10,175,0
+2022-02-01,8 AM,Recipe,Breakfast,Eggs & Oatmeal,100,NA,grams,100,384.7,12.4,10.9605,10.960500000000001,0,3.2,130.65,1.335
+2022-02-01,9 AM,Recipe,Breakfast,Eggs & Oatmeal,100,NA,grams,25,96.175,3.1,2.740125,2.7401250000000004,0,0.8,32.6625,0.33375
+2022-02-01,12 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-01,6 PM,Recipe,Lunch & Dinner,Burger,100,NA,grams,100,574,29.175,31.765,36.74,1.785,15.459999999999999,475.5,4.65
+2022-02-01,8 PM,Ingredient,Poultry Products,"Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",NA,NA,grams,200,240,45,0,5.24,0.014,1.126,90,0
+2022-02-01,8 PM,Ingredient,Prepared Soups,"Campbell's Chunky Soup, Healthy Request Roasted Chicken with Country Vegetables Soup, 18.8 Ounce Can",NA,NA,grams,400,168,10,26.68,1.68,0,0,684,4.8
+2022-02-01,7 PM,Ingredient,Dairy and Egg Products,"Eggs, Grade A, Large, egg white",NA,NA,grams,50,27.5,5.35,1.18,0,0,0,0,0
+2022-02-01,7 PM,Ingredient,Dairy and Egg Products,"Eggs, Grade A, Large, egg whole",NA,NA,grams,200,296,24.8,1.92,19.92,0,6.4,258,0
+2022-02-02,7 AM,Recipe,Breakfast,Eggs & Oatmeal,200,NA,grams,200,384.7,12.4,10.9605,10.960500000000001,0,3.2,130.65,1.335
+2022-02-02,9 AM,Ingredient,Canned & Bottled Beans,ORGANIC BLACK BEANS,NA,NA,grams,100,85,5.38,15.38,0.38,0,0,8,3.8
+2022-02-02,11 AM,Ingredient,Breads & Buns,BRIOCHE BUNS,NA,NA,grams,100,288,10.96,47.95,5.48,0,2.05,466,2.7
+2022-02-02,2 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-02,7 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-02,8 PM,Ingredient,Poultry Products,"Chicken, ground, raw",NA,NA,grams,200,286,34.88,0.08,16.2,0.13,4.602,120,0
+2022-02-03,8 AM,Recipe,Breakfast,Eggs & Oatmeal,100,NA,grams,100,384.7,12.4,10.9605,10.960500000000001,0,3.2,130.65,1.335
+2022-02-04,8 AM,Recipe,Breakfast,Eggs & Oatmeal,100,NA,grams,100,384.7,12.4,10.9605,10.960500000000001,0,3.2,130.65,1.335
+2022-02-05,8 AM,Recipe,Breakfast,Eggs & Oatmeal,100,NA,grams,100,384.7,12.4,10.9605,10.960500000000001,0,3.2,130.65,1.335
+2022-02-06,8 AM,Recipe,Breakfast,Eggs & Oatmeal,100,NA,grams,100,384.7,12.4,10.9605,10.960500000000001,0,3.2,130.65,1.335
+2022-02-03,12 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-04,12 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-05,12 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-06,12 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-03,6 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-04,6 PM,Recipe,Lunch & Dinner,Chicken & Rice,100,NA,grams,100,363,47.74,25.58,6.21,0.014,1.386,94,1.6
+2022-02-05,6 PM,Recipe,Lunch & Dinner,Burger,100,NA,grams,100,574,29.175,31.765,36.74,1.785,15.459999999999999,475.5,4.65
+2022-02-06,6 PM,Recipe,Lunch & Dinner,Burger,100,NA,grams,100,574,29.175,31.765,36.74,1.785,15.459999999999999,475.5,4.65

@@ -18,7 +18,7 @@ app_ui <- function(request) {
         tabPanel(title = "Log",
                  br(),
                  fluidRow(
-                   column(2, radioButtons("log_view", label = "View Type", choices = c("Add", "Summary"), selected = "Add", inline = TRUE)),
+                   column(2, radioButtons("log_view", label = "View Type", choices = c("Summary", "Add"), selected = "Summary", inline = TRUE)),
                    column(2, br(), mod_fileInput_ui("fileInput_ui_log")),
                    column(2, br(), mod_downloadButton_ui("downloadButton_ui_log"))
                  ),
@@ -55,7 +55,7 @@ app_ui <- function(request) {
         tabPanel(title = "Recipes",
                  br(),
                  fluidRow(
-                   column(2, radioButtons("recipes_view", label = "View Type", choices = c("Add", "Library"), inline = TRUE)),
+                   column(2, radioButtons("recipes_view", label = "View Type", choices = c("Library", "Add"), selected = "Library", inline = TRUE)),
                    column(2, br(), mod_fileInput_ui("fileInput_ui_recipes")),
                    column(2, br(), mod_downloadButton_ui("downloadButton_ui_recipes"))
                  ),
@@ -66,7 +66,7 @@ app_ui <- function(request) {
         tabPanel(title = "Ingredients",
                  br(),
                  fluidRow(
-                   column(2, radioButtons("ingredients_view", label = "View Type", choices = c("Add", "Library"),inline = TRUE)),
+                   column(2, radioButtons("ingredients_view", label = "View Type", choices = c("Library", "Add"),inline = TRUE)),
                    column(2, br(), mod_fileInput_ui("fileInput_ui_ingredients")),
                    column(2, br(), mod_downloadButton_ui("downloadButton_ui_ingredients"))
                  ),

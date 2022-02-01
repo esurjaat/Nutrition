@@ -63,7 +63,8 @@ mod_ing_libraryTable_server <- function(id, fdc_table, user_upload, upload){
       library_reactives$df <- 
         bind_rows(library_reactives$df, 
                   upload$table() %>% 
-                    mutate(fdc_id = as.character(fdc_id))) %>%
+                    mutate(fdc_id = as.character(fdc_id),
+                           upc = as.character(upc))) %>%
         unique()
     })
     
