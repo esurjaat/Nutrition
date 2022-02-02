@@ -200,7 +200,7 @@ mod_log_server <- function(id, ingredients_library, recipes_library, upload){
     
     # Load Sample Data =============
     observe({
-      r$log <- read_csv("Data/Food Log - 2022-01-31.csv")
+      r$log <- read_csv("data/Food Log - 2022-01-31.csv")
     })
   
     

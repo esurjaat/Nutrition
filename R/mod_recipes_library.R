@@ -80,7 +80,7 @@ mod_recipes_library_server <- function(id, recipes_add, upload){
     
     # Load Sample Data ====
     observe({
-      library$detail <- read_csv("Data/Recipes - 2022-01-31.csv")
+      library$detail <- read_csv("data/Recipes - 2022-01-31.csv")
     })
     
     return(

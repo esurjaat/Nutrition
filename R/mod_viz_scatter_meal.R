@@ -11,7 +11,7 @@ mod_viz_scatter_meal_ui <- function(id){
   ns <- NS(id)
   tagList(
     plotOutput(ns("plot"), click = ns("plot_click")),
-    gt::gt_output(ns("table"))
+    tableOutput(ns("table"))
   )
 }
     
@@ -48,24 +48,9 @@ mod_viz_scatter_meal_server <- function(id, log, scatter_meal_sidebar){
     })
     
     output$table <- 
-      gt::render_gt({
+      renderTable({
         table() %>% 
-          gt::gt() %>% 
-          gt::tab_header(
-            title = gt::md("**Chosen Items**"),
-            subtitle = gt::md("*Click data points to generate*")
-          ) %>% 
-          gt::opt_align_table_header(align = "center") %>% 
-          gt::cols_label(
-            type = md("**Item Type**"),
-            category = md("**Category**"),
-            item = md("**Item**"),
-            date = md("**Date**"),
-            Total = md("**Total**"),
-            Protein = md("**Protein**"),
-            Carbohydrates = md("**Carbohydrates**"),
-            Fats = md("**Fats**")
-          )
+          titler()
       })
   })
 }

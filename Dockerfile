@@ -11,6 +11,7 @@ RUN Rscript -e 'remotes::install_version("httr",upgrade="never", version = "1.4.
 RUN Rscript -e 'remotes::install_version("ggplot2",upgrade="never", version = "3.3.5")'
 RUN Rscript -e 'remotes::install_version("stringr",upgrade="never", version = "1.4.0")'
 RUN Rscript -e 'remotes::install_version("knitr",upgrade="never", version = "1.36")'
+RUN Rscript -e 'remotes::install_version("pkgload",upgrade="never", version = "1.2.2")'
 RUN Rscript -e 'remotes::install_version("rmarkdown",upgrade="never", version = "2.11")'
 RUN Rscript -e 'remotes::install_version("shiny",upgrade="never", version = "1.7.1")'
 RUN Rscript -e 'remotes::install_version("config",upgrade="never", version = "0.3.1")'

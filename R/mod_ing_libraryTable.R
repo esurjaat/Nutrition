@@ -76,7 +76,7 @@ mod_ing_libraryTable_server <- function(id, fdc_table, user_upload, upload){
     
     # Load in Sample Data ====
     observe({
-      library_reactives$df <- read_csv("Data/Ingredients - 2022-01-31.csv")
+      library_reactives$df <- read_csv("data/Ingredients - 2022-01-31.csv")
     })
     
     return(
