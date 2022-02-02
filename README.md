@@ -12,14 +12,14 @@ This Shiny App allows the user to track and monitor their nutritional
 intake. The user will be able to search food items and/or enter their
 own items under the **Ingredients** tab. Using this library of
 ingredients, the user can then create recipes under the **Recipe** tab.
-The **Log** tab then allows the user to enter their recipes and
-ingredients that they consume throughout the day. This tab also provides
-data visualizations to summarize their nutritional intake.
+The **Log** tab then allows the user to enter their recipes/ingredients
+that they consume throughout the day. This tab also provides data
+visualizations to summarize their nutritional intake.
 
-The app can be found here <https://esurjaat.shinyapps.io/nutrition>. The
-current state of the app is currently loaded with sample data in order
-to showcase the project. In the near feature the app will be able to
-accommodate different users.
+The app can be found here: <https://esurjaat.shinyapps.io/nutrition>.
+The current state of the app is currently loaded with sample data in
+order to showcase the project. In the near feature the app will be able
+to accommodate different users.
 
 This project is created under the
 [golem](https://github.com/ThinkR-open/golem) framework by Colin Fay. If
@@ -32,7 +32,7 @@ Fay:
 -   [Engineering Production-Grade Shiny
     Apps](https://engineering-shiny.org/index.html) - Colin Fay
 
-The Shiny App details are discussed further below.
+The Shiny App details are discussed further in the below sections.
 
 ## Ingredients
 
