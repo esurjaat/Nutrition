@@ -29,5 +29,9 @@ app_server <- function( input, output, session) {
   scatter_meal_sidebar <- mod_viz_scatter_meal_sidebar_server("viz_scatter_meal_sidebar_ui_1")
   scatter <- mod_viz_scatter_meal_server("viz_scatter_meal_ui_1", log = log, scatter_meal_sidebar = scatter_meal_sidebar)
   
+  # Test Tab ====
+  recipeLookup_inputs <- mod_recipeLookup_inputs_server("recipeLookup_inputs_1")
+  recipeLookup_table <- mod_recipeLookup_table_server("recipeLookup_table_1", recipeLookup_inputs = recipeLookup_inputs)
+  
 }
    

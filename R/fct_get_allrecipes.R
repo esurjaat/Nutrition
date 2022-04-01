@@ -5,6 +5,7 @@
 #' @return The return value, if any, from executing the function.
 #'
 #' @noRd
+#' 
 get_allrecipes <- function(url){
   temp_html <- 
     url %>% 
@@ -19,7 +20,7 @@ get_allrecipes <- function(url){
     tibble(
       ingredients =
         temp_html %>%
-        html_nodes(xpath = "//fieldset/ul/li/label/span/span[@class = 'ingredients-item-name']") %>%
+        html_nodes(xpath = "//fieldset/ul/li/label/span/span[contains(@class, 'ingredients-item-name')]") %>%
         html_text()
     ) %>% 
     mutate(
@@ -27,6 +28,8 @@ get_allrecipes <- function(url){
         ingredients %>% 
         str_replace_all("¼", ".25") %>% 
         str_replace_all("½", ".5") %>% 
+        str_replace_all("⅔", ".666") %>% 
+        
         str_replace(" ", ""),
       quantity = 
         case_when(

@@ -25,6 +25,7 @@
 #' @import openxlsx
 #' @import ggplot2
 #' @import lubridate
+#' @import rvest
 #' 
 run_app <- function(
   onStart = NULL,

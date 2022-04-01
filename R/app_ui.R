@@ -90,7 +90,18 @@ app_ui <- function(request) {
                                                    h6("Please fill out the form below for each ingredient"),
                                                    mod_ing_selfUpload_ui("ing_selfUpload_ui_1"))),
                  conditionalPanel(condition = "input.ingredients_view == 'Library'",
-                                  mod_ing_libraryTable_ui("ing_libraryTable_ui_1")))
+                                  mod_ing_libraryTable_ui("ing_libraryTable_ui_1"))),
+        tabPanel(title = "Test",
+                 br(),
+                 sidebarLayout(
+                   sidebarPanel(
+                     mod_recipeLookup_inputs_ui("recipeLookup_inputs_1")
+                   ),
+                   mainPanel(
+                     mod_recipeLookup_table_ui("recipeLookup_table_1")
+                     )
+                   )
+        )
       )
     )
   )
