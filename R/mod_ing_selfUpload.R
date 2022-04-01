@@ -30,8 +30,8 @@ mod_ing_selfUpload_ui <- function(id){
            numericInput(ns("trans_fats"), label = "Trans Fats (g)", value = 0, min = 0, step = 1),
            numericInput(ns("saturated_fats"), label = "Saturated Fats (g)", value = 0, min = 0, step = 1),
            numericInput(ns("sodium"), label = "Sodium (Mg)", value = 0, min = 0, step = 100),
-           numericInput(ns("fiber"), label = "Fiber (g)", value = 0, min = 0, step = 1)),
     column(3,
+           numericInput(ns("fiber"), label = "Fiber (g)", value = 0, min = 0, step = 1)),
            actionButton(ns("add"),label = "Add to Library"))
   )
 }

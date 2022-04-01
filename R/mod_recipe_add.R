@@ -33,7 +33,7 @@ mod_recipe_add_ui <- function(id){
     )
   )
 }
-    
+
 #' recipe_add Server Functions
 #'
 #' @noRd 
@@ -83,13 +83,13 @@ mod_recipe_add_server <- function(id, ingredients_library){
                     left_join(table(), by = "id") %>%
                     mutate(across(.cols = `Calories (kcal)`:`Fiber (g)`,
                                   .fns = function(x){amount / serving_size * x})))
-      })
+    })
     
     output$table <- 
       DT::renderDT({ 
         r$df_selected %>% 
           titler()
-        })
+      })
     
     return(
       list(
@@ -97,12 +97,12 @@ mod_recipe_add_server <- function(id, ingredients_library){
         recipe_addButton = reactive({ input$add_library })
       )
     )
- 
+    
   })
 }
-    
+
 ## To be copied in the UI
 # mod_recipe_add_ui("recipe_add_ui_1")
-    
+
 ## To be copied in the server
 # mod_recipe_add_server("recipe_add_ui_1", ingredients_library)

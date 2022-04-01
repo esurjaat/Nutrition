@@ -44,7 +44,11 @@ mod_recipes_library_server <- function(id, recipes_add, upload){
       reactiveValues(detail = NULL)
     
     observeEvent(recipes_add$recipe_addButton(), {
-      library$detail <- bind_rows(isolate(library$detail), recipes_add$table() %>% mutate(upc = as.character(upc))) %>% unique()
+      library$detail <-
+        bind_rows(isolate(library$detail),
+                  recipes_add$table() %>% 
+                    mutate(upc = as.character(upc))) %>% 
+        unique()
     })
     
     observeEvent(upload$table(), {
@@ -80,7 +84,7 @@ mod_recipes_library_server <- function(id, recipes_add, upload){
     
     # Load Sample Data ====
     observe({
-      library$detail <- read_csv("data/Recipes - 2022-01-31.csv")
+      library$detail <-read_csv("data/Recipes - 2022-01-31.csv") 
     })
     
     return(
