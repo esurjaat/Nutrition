@@ -26,7 +26,7 @@
 #' @import ggplot2
 #' @import lubridate
 #' @import rvest
-#' 
+#' @import shinydashboard
 run_app <- function(
   onStart = NULL,
   options = list(), 
