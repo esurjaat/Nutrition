@@ -17,9 +17,9 @@ that they consume throughout the day. This tab also provides data
 visualizations to summarize their nutritional intake.
 
 The app can be found here: <https://esurjaat.shinyapps.io/nutrition>.
-The current state of the app is currently loaded with sample data in
-order to showcase the project. In the near feature the app will be able
-to accommodate different users.
+The current state of the app is loaded with sample data in order to
+showcase the project. In the near future, the app will be able to
+accommodate different users.
 
 This project is created under the
 [golem](https://github.com/ThinkR-open/golem) framework by Colin Fay. If
@@ -36,18 +36,16 @@ The Shiny App details are discussed further in the below sections.
 
 ## Ingredients
 
-Currently, there are two sources of data that the user can add to their
-library:
+There are two sources of data that the user can add to their library:
 
 ### Food Data Central (FDC) API
 
 The United States Department of Agriculture (USDA) hosts the FDC API to
 allow users to query their database of nutrient data. This Shiny App
-allows the user to query this database with the input of their own API
-Key, which can easily be obtained from their [signup
+allows the user to query this database that requires an API key, which
+can easily be obtained through the [signup
 form](https://fdc.nal.usda.gov/api-key-signup.html). This allows the
-user to make up to 3,600 requests per hour, which is more than enough
-for practical use.
+user to make up to 3,600 requests per hour.
 
 ### Self-Upload
 
