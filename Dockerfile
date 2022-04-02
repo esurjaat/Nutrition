@@ -36,5 +36,5 @@ WORKDIR /build_zone
 RUN R -e 'renv::install("remotes"); remotes::install_local(upgrade="never")'
 RUN rm -rf /build_zone
 COPY README.md README.md
-EXPOSE 80
-CMD R -e "options('shiny.port'=80,shiny.host='0.0.0.0');Nutrition::run_app()"
+EXPOSE 90
+CMD R -e "options('shiny.port'=90,shiny.host='0.0.0.0');Nutrition::run_app()"
