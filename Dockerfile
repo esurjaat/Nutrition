@@ -33,7 +33,7 @@ RUN Rscript -e 'remotes::install_github("ThinkR-open/fakir@e92304d4249f3a667274e
 RUN mkdir /build_zone
 ADD . /build_zone
 WORKDIR /build_zone
-RUN R -e 'renv::install("remotes"); remotes::install_local(upgrade="never")'
+RUN R -e 'remotes::install_local(upgrade="never")'
 RUN rm -rf /build_zone
 RUN apt-get update -qq && \
     apt-get install -y -qq --no-install-recommends \
