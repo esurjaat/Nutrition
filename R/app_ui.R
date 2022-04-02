@@ -20,32 +20,35 @@ app_ui <- function(request) {
                    tabName = "about"),
           menuItem(text = "Log",
                    tabName = "log",
-                   menuSubItem(text = "Load / Save",
-                               tabName = "log_load_save"),
                    menuSubItem(text = "Summary",
                                tabName = "log_summary"),
                    menuSubItem(text = "Add",
-                               tabName = "log_add")),
+                               tabName = "log_add"),
+                   menuSubItem(text = "Load / Save",
+                               tabName = "log_load_save")),
           menuItem(text = "Recipes",
                    tabName = "recipes",
-                   menuSubItem(text = "Load / Save",
-                               tabName = "recipes_load_save"),
                    menuSubItem(text = "Library",
                                tabName = "recipes_library"),
                    menuSubItem(text = "Add",
-                               tabName = "recipes_add")),
+                               tabName = "recipes_add"),
+                   menuSubItem(text = "Load / Save",
+                               tabName = "recipes_load_save")),
           menuItem(text = "Ingredients",
                    tabName = "ingredients",
-                   menuSubItem(text = "Load / Save",
-                               tabName = "ingredients_load_save"),
                    menuSubItem(text = "Library",
                                tabName = "ingredients_library"),
                    menuSubItem(text = "Add",
-                               tabName = "ingredients_add"))
+                               tabName = "ingredients_add"),
+                   menuSubItem(text = "Load / Save",
+                               tabName = "ingredients_load_save"))
         )
       ),
       dashboardBody(
         tabItems(
+          ## About ====
+          tabItem(tabName = "about",
+                  includeMarkdown("README.md")),
           ## Log > Load / Save ====
           tabItem(
             tabName = "log_load_save",
