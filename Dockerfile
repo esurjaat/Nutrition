@@ -42,7 +42,7 @@ RUN apt-get update -qq && \
         pandoc \
         curl
 COPY README.md README.md
-MKDIR /data
+RUN mkdir /data
 COPY ["data/Food Log - 2022-01-31.csv", "data/Food Log - 2022-01-31.csv"]
 COPY ["data/Ingredients - 2022-01-31", "data/Ingredients - 2022-01-31"]
 COPY ["data/Recipes - 2022-01-31.csv", "data/Recipes - 2022-01-31.csv"]
