@@ -42,5 +42,5 @@ RUN apt-get update -qq && \
         pandoc \
         curl
 COPY README.md README.md
-EXPOSE 90
-CMD R -e "options('shiny.port'=90,shiny.host='0.0.0.0');Nutrition::run_app()"
+EXPOSE 80
+CMD R -e "options('shiny.port'=80,shiny.host='0.0.0.0');Nutrition::run_app()"
