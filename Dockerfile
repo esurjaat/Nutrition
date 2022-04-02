@@ -35,6 +35,12 @@ ADD . /build_zone
 WORKDIR /build_zone
 RUN R -e 'renv::install("remotes"); remotes::install_local(upgrade="never")'
 RUN rm -rf /build_zone
+RUN apt-get update -qq && \
+    apt-get install -y -qq --no-install-recommends \
+        libz-dev \
+        libpoppler-cpp-dev \
+        pandoc \
+        curl
 COPY README.md README.md
 EXPOSE 90
 CMD R -e "options('shiny.port'=90,shiny.host='0.0.0.0');Nutrition::run_app()"
