@@ -20,6 +20,7 @@ Imports:
     janitor (>= 2.1.0),
     jsonlite (>= 1.7.3),
     lubridate (>= 1.8.0),
+    markdown,
     openxlsx (>= 4.2.5),
     pkgload (>= 1.2.2),
     purrr (>= 0.3.4),
