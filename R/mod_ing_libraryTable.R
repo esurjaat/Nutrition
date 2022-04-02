@@ -71,7 +71,12 @@ mod_ing_libraryTable_server <- function(id, fdc_table, user_upload, upload){
     output$table <- 
       DT::renderDT({
         library_reactives$df %>% 
-          titler()
+          titler() %>% 
+          datatable(
+            options = list(
+              scrollX = TRUE
+            )
+          )
       })
     
     # Load in Sample Data ====

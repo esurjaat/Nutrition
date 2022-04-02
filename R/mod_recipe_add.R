@@ -88,7 +88,12 @@ mod_recipe_add_server <- function(id, ingredients_library){
     output$table <- 
       DT::renderDT({ 
         r$df_selected %>% 
-          titler()
+          titler() %>% 
+          datatable(
+            options = list(
+              scrollX = TRUE
+            )
+          )
       })
     
     return(

@@ -72,14 +72,24 @@ mod_recipes_library_server <- function(id, recipes_add, upload){
       DT::renderDT({
         req(nrow(library$detail > 0))
         library$detail %>% 
-          titler()
+          titler() %>% 
+          datatable(
+            options = list(
+              scrollX = TRUE
+            )
+          )
       })
     
     output$summary <- 
       DT::renderDT({
         req(summary())
         summary() %>% 
-          titler()
+          titler() %>% 
+          datatable(
+            options = list(
+              scrollX = TRUE
+            )
+          )
       })
     
     # Load Sample Data ====

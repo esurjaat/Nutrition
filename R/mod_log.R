@@ -184,7 +184,12 @@ mod_log_server <- function(id, ingredients_library, recipes_library, upload){
     })
     
     # UI Outputs ====
-    output$table <- DT::renderDT({ r$log %>% titler() })
+    output$table <- DT::renderDT({ r$log %>% titler()  %>% 
+        datatable(
+          options = list(
+            scrollX = TRUE
+          )
+        )})
     
     # Update Log ====
     observeEvent(upload$table(), {

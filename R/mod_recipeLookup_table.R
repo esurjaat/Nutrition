@@ -26,7 +26,10 @@ mod_recipeLookup_table_server <- function(id, recipeLookup_inputs){
       DT::renderDT({
         datatable(
           recipeLookup_inputs$df(),
-          editable = TRUE
+          editable = TRUE,
+          options = list(
+            scrollX = TRUE
+          )
           )
         })
     

@@ -43,7 +43,12 @@ mod_fdc_lookupTable_server <- function(id, fdc_inputs){
     output$fdc_lookupTable <- 
       DT::renderDT({
         req(fdc_inputs$fdc_searchButton())
-        fdc_lookupTable()
+        fdc_lookupTable() %>% 
+          datatable(
+            options = list(
+              scrollX = TRUE
+            )
+          )
       })
       
     # Return
