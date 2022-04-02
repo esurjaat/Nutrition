@@ -44,7 +44,7 @@ RUN apt-get update -qq && \
 COPY README.md README.md
 RUN mkdir /data
 COPY ["data/Food Log - 2022-01-31.csv", "data/Food Log - 2022-01-31.csv"]
-COPY ["data/Ingredients - 2022-01-31", "data/Ingredients - 2022-01-31"]
+COPY ["data/Ingredients - 2022-01-31.csv", "data/Ingredients - 2022-01-31.csv"]
 COPY ["data/Recipes - 2022-01-31.csv", "data/Recipes - 2022-01-31.csv"]
 EXPOSE 80
 CMD R -e "options('shiny.port'=80,shiny.host='0.0.0.0');Nutrition::run_app()"
