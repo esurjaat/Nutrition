@@ -16,10 +16,10 @@ The **Log** tab then allows the user to enter their recipes/ingredients
 that they consume throughout the day. This tab also provides data
 visualizations to summarize their nutritional intake.
 
-The app can be found here: <https://esurjaat.shinyapps.io/nutrition>.
-The current state of the app is loaded with sample data in order to
-showcase the project. In the near future, the app will be able to
-accommodate different users.
+The app can be found here:
+<https://nutrition-te925.ondigitalocean.app/>. The current state of the
+app is loaded with sample data in order to showcase the project. In the
+near future, the app will be able to accommodate different users.
 
 This project is created under the
 [golem](https://github.com/ThinkR-open/golem) framework by Colin Fay. If
